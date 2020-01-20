@@ -13,7 +13,7 @@ public class Sort{
 	}
 	private static void countingSort(int[] arr){
 		int max = max(arr);
-		int[] freq = new int[max];
+		int[] freq = new int[max+1];
 		int[] sortedArr = new int[arr.length];
 		Arrays.fill(freq,0);
 		for(int i=0;i<arr.length;i++)
