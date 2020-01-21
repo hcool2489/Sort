@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class Sort{
 	private static int max(int[] arr){
 		int max = 0;
@@ -10,8 +11,9 @@ public class Sort{
 	private static void print(int[] arr){
 		for(int i: arr)
 			System.out.print(i + " ");
+		System.out.println();
 	}
-	private static void countingSort(int[] arr){
+	private static int[] countingSort(int[] arr){
 		int max = max(arr);
 		int[] freq = new int[max+1];
 		int[] sortedArr = new int[arr.length];
@@ -21,10 +23,10 @@ public class Sort{
 		for(int i=1;i<freq.length;i++)
 			freq[i]+=freq[i-1];
 		for(int i=arr.length-1;i>-1;i--){
-			sortedArr[freq[arr[i]]] = arr[i];
+			sortedArr[freq[arr[i]]-1] = arr[i];
 			freq[arr[i]]--;
 		}
-		arr = sortedArr;
+		return sortedArr;
 	}
 	
 	public static void main(String[] args){
@@ -33,8 +35,9 @@ public class Sort{
 		int[] arr = new int[len];
 		for(int i=0;i<len;i++)
 			arr[i] = sc.nextInt();
+		System.out.println("\nOriginal Array");
 		print(arr);
-		countingSort(arr);
-		print(arr);
+		System.out.println("\nCounting Sort");
+		print(countingSort(arr));
 	}
 }
