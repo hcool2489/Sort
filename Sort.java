@@ -20,7 +20,7 @@ public class Sort{
 			freq[arr[i]]++;
 		for(int i=1;i<freq.length;i++)
 			freq[i]+=freq[i-1];
-		for(int i=arr.length;i>-1;i--){
+		for(int i=arr.length-1;i>-1;i--){
 			sortedArr[freq[arr[i]]] = arr[i];
 			freq[arr[i]]--;
 		}
