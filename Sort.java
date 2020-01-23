@@ -13,6 +13,8 @@ public class Sort{
 			System.out.print(i + " ");
 		System.out.println();
 	}
+	
+	//Counting Sort
 	private static int[] countingSort(int[] arr){
 		int max = max(arr);
 		int[] freq = new int[max+1];
@@ -27,6 +29,11 @@ public class Sort{
 			freq[arr[i]]--;
 		}
 		return sortedArr;
+	}
+	
+	//Insertion Sort
+	private static int[] insertionSort(int[] arr){
+		
 	}
 	
 	public static void main(String[] args){
