@@ -42,9 +42,9 @@ public class Sort{
                 i--;
             }
             arr[i+1] = key;
+            }
+            return arr;
         }
-        return arr;
-    }
 	
 	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
