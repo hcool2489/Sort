@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Arrays;
 
 public class Sort{
 	private static int max(int[] arr){
@@ -8,14 +8,31 @@ public class Sort{
 				max=i;
 		return max;
 	}
-	private static void print(int[] arr){
+	
+	//Print Function to Print Array
+	public static void print(int[] arr){
 		for(int i: arr)
 			System.out.print(i + " ");
 		System.out.println();
 	}
 	
+	//Selection Sort
+	public static int[] selection(int[] orgArr){
+		int[] arr = orgArr.clone();
+		for(int i=0;i<arr.length-1;i++){
+			int min_i = i;
+			for(int j=i+1;j<arr.length;j++)
+				if(arr[j] < arr[min_i])
+					min_i = j;
+			int temp = arr[min_i];
+			arr[min_i] = arr[i];
+			arr[i] = temp;
+		}
+		return arr;
+	}
+	
 	//Counting Sort
-	private static int[] countingSort(int[] arr){
+	public static int[] counting(int[] arr){
 		int max = max(arr);
 		int[] freq = new int[max+1];
 		int[] sortedArr = new int[arr.length];
@@ -32,29 +49,18 @@ public class Sort{
 	}
 	
 	//Insertion Sort
-	private static int[] insertionSort(int[] arr){
-        int key, i, j;
-        for(j=1;j<arr.length;j++){
-            key = arr[j];
-            i=j-1;
-            while(i>-1 && arr[i]>key){
-                arr[i+1] = arr[i];
-                i--;
-            }
-            arr[i+1] = key;
-            }
-            return arr;
-        }
-	
-	public static void main(String[] args){
-		Scanner sc = new Scanner(System.in);
-		int len = sc.nextInt();
-		int[] arr = new int[len];
-		for(int i=0;i<len;i++)
-			arr[i] = sc.nextInt();
-		System.out.println("\nOriginal Array");
-		print(arr);
-		System.out.println("\nCounting Sort");
-		print(countingSort(arr));
+	public static int[] insertion(int[] orgArr){
+		int[] arr = orgArr.clone();
+		int key, i, j;
+		for(j=1;j<arr.length;j++){
+			key = arr[j];
+			i=j-1;
+			while(i>-1 && arr[i]>key){
+				arr[i+1] = arr[i];
+				i--;
+			}
+			arr[i+1] = key;
+		}
+		return arr;
 	}
 }
